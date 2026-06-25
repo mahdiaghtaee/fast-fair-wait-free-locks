@@ -1,14 +1,45 @@
-# Fast and Fair Randomized Wait-Free Locks 🔒
+# Fast and Fair Randomized Wait-Free Locks
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-Educational-orange)](https://github.com/mahdiaghtaee/fast-fair-wait-free-locks)
+This repository is a Python implementation and study project based on the paper **Fast and Fair Randomized Wait-Free Locks** by Naama Ben-David and Guy E. Blelloch.
 
-A faithful Python implementation of the **Multi Active Set** algorithm for wait-free locks, based on the research paper:
+## Purpose
 
-> **"Fast and fair randomized wait-free locks"**
-> *Naama Ben-David, Guy E. Blelloch*
-> Distributed Computing (2025)
+The goal is to explore concurrent algorithms, fairness, and wait-free synchronization concepts through a readable implementation.
 
-## 📑 Overview
+This project is useful as a technical portfolio item because it shows interest in:
 
+- Distributed systems
+- Concurrency
+- Algorithm implementation
+- Research-to-code translation
+- Performance and fairness concepts
+
+## What It Demonstrates
+
+- Implementation of a research-based locking algorithm
+- Clear separation between algorithm logic and experiments
+- A foundation for benchmarking and comparison
+- Practical understanding of wait-free and randomized approaches
+
+## Suggested Improvements
+
+To make this repository stronger, the next steps should be:
+
+- Add benchmark results
+- Add comparison with basic lock implementations
+- Add diagrams explaining the algorithm
+- Add unit tests
+- Add examples showing expected behavior
+- Add a short explanation of fairness and wait-freedom
+
+## Status
+
+Research and educational implementation. It is useful for showing algorithmic depth, but it is not a primary freelance sales project.
+
+## Portfolio Value
+
+Keep this repository public because it supports a senior engineering profile. It should not be the first pinned project for freelance work, but it can support backend/distributed-systems credibility.
+
+## Author
+
+Mahdi Aghtaee
