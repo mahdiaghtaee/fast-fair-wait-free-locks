@@ -1,5 +1,7 @@
 # Fast and Fair Randomized Wait-Free Locks
 
+> **Project status:** Archived research artifact. Active development is closed for the current cycle. This repository is retained for attribution, study notes, and the referenced paper; it does not claim to provide a production-ready implementation or validated benchmark suite.
+
 This repository is an exploratory Python implementation inspired by the paper **Fast and Fair Randomized Wait-Free Locks** by Naama Ben-David and Guy E. Blelloch ([arXiv:2108.04520](https://arxiv.org/abs/2108.04520)).
 
 The goal is to study the paper's lock-acquisition ideas, fairness model, randomized progress argument, and contention assumptions through readable code and small experiments.
@@ -82,7 +84,11 @@ When comparing the code with the paper, keep the following questions explicit:
 
 ## Status
 
-Exploratory research implementation. The next meaningful milestone is a reproducible correctness-test and benchmark suite with documented baselines and raw results.
+Archived research artifact.
+
+The repository is intentionally frozen at its current scope. A reproducible correctness/benchmark implementation was identified as the next useful research milestone but was not completed in this cycle. That work should only be reopened if the project is intentionally resumed with an executable implementation, tests, raw results, and documented environment details.
+
+No wait-free, fairness, performance, or production-suitability claim should be inferred from this repository.
 
 ## License and Attribution
 
