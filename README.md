@@ -1,95 +1,49 @@
 # Fast and Fair Randomized Wait-Free Locks
 
-> **Project status:** Archived research artifact. Active development is closed for the current cycle. This repository is retained for attribution, study notes, and the referenced paper; it does not claim to provide a production-ready implementation or validated benchmark suite.
+> **Project status:** Frozen research artifact. Active development is closed for the current cycle.
 
-This repository is an exploratory Python implementation inspired by the paper **Fast and Fair Randomized Wait-Free Locks** by Naama Ben-David and Guy E. Blelloch ([arXiv:2108.04520](https://arxiv.org/abs/2108.04520)).
+This repository preserves the referenced paper and the scope notes used to study **Fast and Fair Randomized Wait-Free Locks** by Naama Ben-David and Guy E. Blelloch.
 
-The goal is to study the paper's lock-acquisition ideas, fairness model, randomized progress argument, and contention assumptions through readable code and small experiments.
+It does **not** currently contain a validated executable implementation, benchmark suite, formal proof artifact, or production synchronization primitive.
 
-## Scope
+## Reference
 
-This repository should be treated as an educational implementation, not as a drop-in synchronization primitive for production Python applications.
+- Paper: *Fast and Fair Randomized Wait-Free Locks*
+- Authors: Naama Ben-David and Guy E. Blelloch
+- arXiv: https://arxiv.org/abs/2108.04520
 
-It is intended to help explore:
+## Research questions
 
-- randomized lock acquisition;
-- fairness under contention;
-- bounded-attempt reasoning;
-- multi-lock acquisition;
-- the distinction between algorithmic progress guarantees and runtime behavior.
+If this work is resumed, the implementation should make these points explicit:
 
-## Important Limitations
+- the modeled contention level;
+- how many locks an attempt may request;
+- which events are randomized;
+- what causes an acquisition attempt to fail;
+- which assumptions come from the algorithm and which come from the runtime;
+- how fairness is measured.
 
-- A Python implementation does not by itself reproduce the paper's formal machine model or prove the same wait-free guarantees.
-- Python interpreter scheduling, operating-system scheduling, blocking I/O, and implementation details can affect observed progress and fairness.
-- No maintained benchmark report is currently included.
-- No formal verification or proof artifact is included.
-- Experimental results should not be generalized beyond the documented workload, runtime, hardware, and random seed.
+## Requirements for a reproducible implementation
 
-## Evaluation Requirements
-
-A reproducible evaluation should include:
+A future implementation should include:
 
 1. deterministic random seeds;
 2. clearly defined worker and contention models;
-3. success and failure counts for acquisition attempts;
-4. per-worker wait-time and completion distributions;
-5. comparison with a simple baseline lock strategy;
+3. mutual-exclusion and cleanup tests;
+4. per-worker wait-time/completion measurements;
+5. a simple baseline lock strategy;
 6. repeated runs across several contention levels;
-7. Python, operating-system, and hardware details;
-8. raw machine-readable results in addition to summary charts.
+7. runtime, operating-system, and hardware details;
+8. raw machine-readable results alongside any summary charts.
 
-## Correctness Tests
+Passing program-level tests would improve implementation confidence, but would not reproduce or replace the paper's formal proof.
 
-The implementation should be tested for properties that can be observed at the program level, including:
+## Current boundary
 
-- protected critical sections do not overlap when mutual exclusion is expected;
-- multi-lock acquisition uses a consistent ownership model;
-- failed attempts do not leave locks partially owned;
-- repeated acquisition and release returns the system to a reusable state;
-- invalid inputs fail clearly;
-- seeded experiments are reproducible.
+This repository is intentionally frozen at its current scope. No wait-free, fairness, performance, or production-suitability claim should be inferred from it.
 
-These tests support implementation confidence but do not replace the paper's proof.
+If development resumes, the first meaningful milestone should be a small executable implementation with correctness tests and fully reproducible benchmark inputs/results.
 
-## Suggested Experiment Structure
+## License and attribution
 
-```text
-benchmarks/
-  compare_baselines.py
-  workloads.py
-
-results/
-  raw/
-  summaries/
-
-tests/
-  test_mutual_exclusion.py
-  test_failed_attempt_cleanup.py
-  test_seed_reproducibility.py
-```
-
-Results and charts should be committed only with the exact command, configuration, and environment needed to reproduce them.
-
-## Research Notes
-
-When comparing the code with the paper, keep the following questions explicit:
-
-- What is the modeled point contention?
-- How many locks can a single attempt request?
-- Which events are randomized?
-- What causes an attempt to fail?
-- Which assumptions belong to the algorithm and which belong to the Python runtime?
-- Is fairness measured as probability of success, waiting time, or observed completion order?
-
-## Status
-
-Archived research artifact.
-
-The repository is intentionally frozen at its current scope. A reproducible correctness/benchmark implementation was identified as the next useful research milestone but was not completed in this cycle. That work should only be reopened if the project is intentionally resumed with an executable implementation, tests, raw results, and documented environment details.
-
-No wait-free, fairness, performance, or production-suitability claim should be inferred from this repository.
-
-## License and Attribution
-
-Review the repository license before reuse. The paper, third-party code, and any referenced datasets or tools retain their own licenses and attribution requirements.
+Review the repository license before reuse. The paper and any third-party material retain their own licenses and attribution requirements.
